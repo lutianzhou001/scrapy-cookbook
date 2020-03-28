@@ -19,7 +19,7 @@ formats: all
 python:
   version: 3.7
   install:
-    - method: pip3
+    - method: pip
       path: .
       extra_requirements:
          - sphinxcontrib-mermaid
