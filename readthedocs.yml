@@ -20,4 +20,4 @@ python:
   version: 3.7
   install:
     - method: pip
-      requirements: sphinxcontrib-mermaid
+    - requirements: sphinxcontrib-mermaid
