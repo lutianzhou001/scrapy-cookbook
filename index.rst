@@ -7,9 +7,11 @@ Welcome to hudex's documentation!
 =================================
 
 .. toctree::
-   :maxdepth: 2
-.. mermaid:: ./signup.mmd
+   :hidden:
+   :maxdepth: 1
 
+   docs/introduction.md
+   docs/auth/index.rst
 Indices and tables
 ==================
 

@@ -12,10 +12,12 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
+import os
+import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+import sphinx_rtd_theme
+from recommonmark.transform import AutoStructify
 from recommonmark.parser import CommonMarkParser
 # -- Project information -----------------------------------------------------
 
@@ -73,11 +75,20 @@ pygments_style = None
 
 
 # -- Options for HTML output -------------------------------------------------
-
+html_theme = 'sphinx_rtd_theme'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+# html_theme = 'alabaster'
+
+html_theme_options = {'navigation_depth': 4,}
+using_rtd_theme = True
+html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+todo_include_todos = True
+
+# VCS options: https://docs.readthedocs.io/en/latest/vcs.html#github
+
+
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -174,3 +185,19 @@ epub_title = project
 
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
+
+# markdown support 
+github_doc_root = 'https://github.com/rtfd/recommonmark/tree/master/doc/'
+def setup(app):
+    app.add_config_value('recommonmark_config', {
+        'url_resolver': lambda url: github_doc_root + url,
+        'auto_toc_tree_section': 'Contents',
+        'enable_eval_rst': True,
+        'enable_auto_doc_ref': True,
+    }, True)
+
+    app.add_transform(AutoStructify)
+    app.add_stylesheet('css/custom.css')
+    app.add_javascript('js/readthedocs-analytics.js')
+
+    
