@@ -1,4 +1,3 @@
-```mermaid
 sequenceDiagram
 participant user as Client
 participant client as Frontend
@@ -39,11 +38,8 @@ client->>client: 激活[发送验证码]
           client-->>user: 提示注册成功
           client->>client: 跳转至[登录页]
         else 验证失败
-          client-->>user: 提示验证码错误:停留在当前页
-        else 发送过于频繁
-          client-->>user: 提示发送过于频繁:停留在当前页
+          client-->>user: 提示验证码错误/发送过于频繁:停留在当前页
         end
       end
     end
 
-```

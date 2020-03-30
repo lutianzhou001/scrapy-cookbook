@@ -8,7 +8,6 @@ Welcome to hudex's documentation!
 
 .. toctree::
    :maxdepth: 2
-.. mermaid:: ./test.mmd
 .. mermaid:: ./signup.mmd
 
 Indices and tables
